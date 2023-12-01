@@ -12,9 +12,9 @@ number_dict = {'one': '1','two': '2','three': '3','four': '4','five': '5','six':
 total = 0
 for line in lines:
     nums = re.findall(reg, line)
-    index = [0, len(nums)-1]
-    firstNum = nums[index[0]]
-    secondNum = nums[index[1]]
+    index = len(nums)-1
+    firstNum = nums[0]
+    secondNum = nums[index]
     if not firstNum.isnumeric():
         firstNum = ''.join(number_dict[each] for each in firstNum.split())
     if not secondNum.isnumeric():
