@@ -6,7 +6,6 @@ file = open("day1_input", "r")
 lines = file.readlines()
 
 reg = re.compile("(?=([0-9]|one|two|three|four|five|six|seven|eight|nine))", re.IGNORECASE)
-regexDigit = re.compile("[0-9]")
 
 number_dict = {
     'one': '1',
@@ -26,9 +25,9 @@ for line in lines:
     index = [0, len(nums)-1]
     firstNum = nums[index[0]]
     secondNum = nums[index[1]]
-    if not re.match(regexDigit, firstNum):
+    if not firstNum.isnumeric():
         firstNum = ''.join(number_dict[ele] for ele in firstNum.split())
-    if not re.match(regexDigit, secondNum):
+    if not secondNum.isnumeric():
         secondNum = ''.join(number_dict[ele] for ele in secondNum.split())
     number = firstNum + secondNum
     # print("Line: ", line.rstrip(), "\nNums:", nums, "\nNumber: ",number, "\n")
