@@ -16,9 +16,9 @@ for line in lines:
     firstNum = nums[index[0]]
     secondNum = nums[index[1]]
     if not firstNum.isnumeric():
-        firstNum = ''.join(number_dict[ele] for ele in firstNum.split())
+        firstNum = ''.join(number_dict[each] for each in firstNum.split())
     if not secondNum.isnumeric():
-        secondNum = ''.join(number_dict[ele] for ele in secondNum.split())
+        secondNum = ''.join(number_dict[each] for each in secondNum.split())
     number = firstNum + secondNum
     # print("Line: ", line.rstrip(), "\nNums:", nums, "\nNumber: ",number, "\n")
     total += int(number)
