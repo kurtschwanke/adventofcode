@@ -1,11 +1,6 @@
 #!/usr/bin/python3
-# import os
-import re
 
-# read each line from input
-# filter for numbers
-# create two digit number from first and last number in line (duplicate if only 1 number)
-# sum together
+import re
 
 file = open("day1_input", "r")
 lines = file.readlines()
