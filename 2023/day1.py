@@ -22,7 +22,7 @@ number_dict = {
 
 total = 0
 for line in lines:
-    nums = re.findall(reg, line.rstrip())
+    nums = re.findall(reg, line)
     index = [0, len(nums)-1]
     firstNum = nums[index[0]]
     secondNum = nums[index[1]]
