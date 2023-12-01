@@ -10,7 +10,7 @@ import re
 file = open("day1_input", "r")
 lines = file.readlines()
 
-reg = re.compile("[0-9]|one|two|three|four|five|six|seven|eight|nine") #, re.IGNORECASE)
+reg = re.compile("(?=([0-9]|one|two|three|four|five|six|seven|eight|nine))", re.IGNORECASE)
 regexDigit = re.compile("[0-9]")
 
 number_dict = {
@@ -27,7 +27,10 @@ number_dict = {
 
 total = 0
 for line in lines:
+    print(line)
     nums = re.findall(reg, line.rstrip())
+    print(re.findall(reg, line))
+    # break
     index = [0, len(nums)-1]
     firstNum = nums[index[0]]
     secondNum = nums[index[1]]
@@ -36,7 +39,7 @@ for line in lines:
     if not re.match(regexDigit, secondNum):
         secondNum = ''.join(number_dict[ele] for ele in secondNum.split())
     number = firstNum + secondNum
-    # print("Line: ", line.rstrip(), "\nNums:", nums, "\nNumber: ",number, "\n")
+    print("Line: ", line.rstrip(), "\nNums:", nums, "\nNumber: ",number, "\n")
     total += int(number)
 print("Total: ", total)
 
