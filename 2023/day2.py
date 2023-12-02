@@ -19,7 +19,11 @@ for line in lines:
     modLine = modLine.strip('\n')
     gameSet = modLine.split(';')
     count+=1
+    red=0
+    blue=0
+    green=0
     for game in gameSet:
+      print(game)
       cubes = game.split(',')
       for cube in cubes:
         cube = cube.strip()
@@ -27,16 +31,33 @@ for line in lines:
         id = int(c[0])
         colour = c[1]
         if colour == 'red':
-          if id > 12:
-            raise EscapeLoop
+          if red == 0:
+            red = id
+          elif id > red:
+            red = id
+          #if id > 12:
+            #raise EscapeLoop
         elif colour == 'blue':
-          if id > 14:
-            raise EscapeLoop
+          if blue == 0:
+            blue = id
+          elif id > blue:
+            blue = id
+          #if id > 14:
+            #raise EscapeLoop
         elif colour == 'green':
-          if id > 13:
-            raise EscapeLoop
+          if green == 0:
+            green = id
+          elif id > green:
+            green = id
+          #if id > 13:
+            #raise EscapeLoop
+        else:
+          raise EscapeLoop
   except EscapeLoop:
     continue
-  total += int(gameId[0])
+  power = red * green * blue
+  # print(power)
+  # total += int(gameId[0])
+  total += power
 
 print(total)
