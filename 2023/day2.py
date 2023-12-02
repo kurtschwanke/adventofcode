@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# This is really horrible
+
 import re
 
 class EscapeLoop( Exception ):
